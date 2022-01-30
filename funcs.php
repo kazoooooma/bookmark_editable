@@ -12,9 +12,9 @@ function h($str)
 //※ DBname等、今回の授業に合わせる。
 function db_conn(){
     try {
-        $db_name = "kazoooooma_books_db";    //データベース名
-        $db_id   = "kazoooooma";      //アカウント名
-        $db_pw   = "MC-170033";      //パスワード：XAMPPはパスワード無しに修正してください。
+        $db_name = "";    //データベース名
+        $db_id   = "";      //アカウント名
+        $db_pw   = "";      //パスワード：XAMPPはパスワード無しに修正してください。
         $db_host = "mysql57.kazoooooma.sakura.ne.jp"; //DBホスト
         $pdo = new PDO('mysql:dbname=' . $db_name . ';charset=utf8;host=' . $db_host, $db_id, $db_pw);
         return $pdo; //返り値設定
