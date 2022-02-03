@@ -12,12 +12,12 @@ function h($str)
 //※ DBname等、今回の授業に合わせる。
 function db_conn(){
     try {
-        $db_name = "";    //データベース名
-        $db_id   = "";      //アカウント名
-        $db_pw   = "";      //パスワード：XAMPPはパスワード無しに修正してください。
-        $db_host = "mysql57.kazoooooma.sakura.ne.jp"; //DBホスト
-        $pdo = new PDO('mysql:dbname=' . $db_name . ';charset=utf8;host=' . $db_host, $db_id, $db_pw);
-        return $pdo; //返り値設定
+        $db_name = "books_db";    //データベース名
+        $db_id   = "root";      //アカウント名
+        $db_pw   = "root";      //パスワード：XAMPPはパスワード無しに修正してください。
+        $db_host = "localhost"; //DBホスト
+        return new PDO('mysql:dbname=' . $db_name . ';charset=utf8;host=' . $db_host, $db_id, $db_pw);
+        // return $pdo; //返り値設定
       } catch (PDOException $e) {
       exit('DBConnectError:'.$e->getMessage());
       }

@@ -27,8 +27,9 @@ if($status==false) {
     '<td class="list_results">'.$result['comment'].'</td>'.
     '<td class="list_results">'.'<img src="img/star'.$result['rating'].'.png" class="starrate">'.'</td>'.
     '<td class="list_results">'.'<a href="bm_update_view.php?id='.$result['id'].'">[内容の編集]</a></br>'.
-    '<a href="bm_delete.php?id='.$result['id'].'">[投稿を削除]</a></td>'.
-    // '<a href="javascript:delwarning();">[投稿を削除]</a></td>'.
+    // '<a href="bm_delete.php?id='.$result['id'].'">[投稿を削除]</a></td>'.
+    '<button onclick="delClick('.$result['id'].')">[投稿を削除]</button></td>'.
+    // '<p id="delbutton">[投稿を削除]</p></td>'.
     '</tr>';
   };
 };
@@ -42,6 +43,7 @@ if($status==false) {
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>ブックマーク一覧</title>
 <link rel="stylesheet" href="css/listview.css">
+<script src="js/jquery-3.5.1.min.js"></script>
 </head>
 <body id="main">
 <!-- Head[Start] -->
@@ -76,18 +78,16 @@ if($status==false) {
 </body>
 </html>
 
-<!-- <script>
-  function delwarning(){
-    if(window.confirm('本当に削除しますか？')){  
-      <?php
-      //require_once('funcs.php');
-      //while( $result = $stmt->fetch(PDO::FETCH_ASSOC)){ 
-      //redirect('bm_delete.php?id='.$result['id']);
-      //}
-      ?>
+<script>
+  function delClick(id){
+    let res = confirm("本当に削除しますか？");
+    if( res == true ) {
+        // OKなら移動
+        window.location.href = "http://localhost/bookmark_editable/bm_delete.php?id="+id;
     }
-    else{
-      window.alert('キャンセルされました'); 
+    else {
+        // キャンセルならアラートボックスを表示
+        alert("キャンセルしました");
     }
   }
-</script> -->
+</script>
